@@ -28,3 +28,6 @@ hs_err_pid*
 .project
 /.settings/
 *.iml
+
+# App files
+balances.txt
