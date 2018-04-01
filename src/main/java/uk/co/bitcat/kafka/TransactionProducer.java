@@ -15,38 +15,27 @@ public class TransactionProducer implements AutoCloseable {
     protected Producer<String, String> producer;
 
     public TransactionProducer() {
-        // Initialise Kafka Producer with properties
-        Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9092");
-        props.put("acks", "all");
-        props.put("retries", 0);
-        props.put("batch.size", 16384);
-        props.put("linger.ms", 1);
-        props.put("buffer.memory", 33554432);
-        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        producer = new KafkaProducer<>(props);
+        // TODO::Initialise Kafka Producer with properties
+
     }
 
     public void send(final Transaction transaction) throws JsonProcessingException {
-        // Serialise the transaction DTO to a JSON string using Jackson
-        // See http://www.mkyong.com/java/jackson-2-convert-java-object-to-from-json/ for help
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(transaction);
+        // TODO::Serialise the transaction DTO to a JSON string using Jackson
+        // TODO::See http://www.mkyong.com/java/jackson-2-convert-java-object-to-from-json/ for help
 
-        // Create a producer record, the ProducerRecord(String topic, V value) constructor can be used
-        // as no key is necessary
-        ProducerRecord<String, String> record = new ProducerRecord<>("test", json);
 
-        // Use the Kafka producer to send the message
-        producer.send(record);
-        System.out.println("Sending payload: " + json);
+        // TODO::Create a producer record, the ProducerRecord(String topic, V value) constructor can be used
+        // TODO::as no key is necessary
+
+
+        // TODO::Use the Kafka producer to send the producer record
+
     }
 
     @Override
     public void close() throws Exception {
-        // Close the Kafka producer
-        producer.close();
+        // TODO::Close the Kafka producer
+
     }
 
 }
