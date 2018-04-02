@@ -5,6 +5,8 @@ public class TransactionOutput {
     private int amount;
     private String address;
 
+    public TransactionOutput() {};
+
     public TransactionOutput(final int amount, final String address) {
         this.amount = amount;
         this.address = address;

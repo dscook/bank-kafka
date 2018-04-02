@@ -9,6 +9,8 @@ public class Transaction {
     private Map<Integer, TransactionInput> inputs;
     private Map<Integer, TransactionOutput> outputs;
 
+    public Transaction() {};
+
     public Transaction(final String id,
                        final Map<Integer, TransactionInput> inputs,
                        final Map<Integer, TransactionOutput> outputs) {
