@@ -1,5 +1,6 @@
 package uk.co.bitcat.dto;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,10 @@ public class Transaction {
     }
 
     public Map<Integer, TransactionInput> getInputs() {
+        if (inputs == null) {
+            inputs = new HashMap<>();
+        }
+
         return inputs;
     }
 

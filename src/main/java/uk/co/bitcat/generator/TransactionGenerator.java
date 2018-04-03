@@ -62,7 +62,8 @@ public class TransactionGenerator {
             }
 
             Map<Integer, TransactionInput> txInputs = new HashMap<>();
-            TransactionInput txInput = new TransactionInput(utxo.getTxId(), utxo.getUtxoIndex(), utxo.getAddress());
+            TransactionInput txInput = new TransactionInput(utxo.getTxId(), utxo.getUtxoIndex(),
+                    utxo.getAmount(), utxo.getAddress());
             txInputs.put(0, txInput);
 
             // Randomly split the UTXO and allocate to two other random accounts

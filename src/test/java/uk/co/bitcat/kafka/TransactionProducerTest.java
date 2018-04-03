@@ -39,7 +39,7 @@ public class TransactionProducerTest extends EasyMockSupport {
         // Ensure the mock producer is in use
         txProducer.producer = producer;
 
-        TransactionInput txInput = new TransactionInput("tx1", 0, "account1");
+        TransactionInput txInput = new TransactionInput("tx1", 0, 100, "account1");
         TransactionOutput txOutput = new TransactionOutput(100, "account2");
 
         Map<Integer, TransactionInput> txInputs = new HashMap<>();
@@ -50,7 +50,8 @@ public class TransactionProducerTest extends EasyMockSupport {
 
         Transaction tx = new Transaction("tx2", txInputs, txOutputs);
 
-        String json = "{\"id\":\"tx2\",\"inputs\":{\"0\":{\"txId\":\"tx1\",\"utxoIndex\":0,\"address\":\"account1\"}},"
+        String json = "{\"id\":\"tx2\","
+                + "\"inputs\":{\"0\":{\"txId\":\"tx1\",\"utxoIndex\":0,\"amount\":100,\"address\":\"account1\"}},"
                 + "\"outputs\":{\"0\":{\"amount\":100,\"address\":\"account2\"}}}";
         ProducerRecord<String, String> record = new ProducerRecord<>("test", json);
 
